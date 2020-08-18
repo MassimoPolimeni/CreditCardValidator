@@ -18,12 +18,14 @@ def check(credit_card_number)
   credit_card_array.reverse!
 
   credit_card_array.each_with_index do |_, index|
-    credit_card_array[index] = credit_card_array[index] * 2 if index.even?
+    credit_card_array[index] = credit_card_array[index] * 2 unless index.even?
     credit_card_array[index] -= 9 if credit_card_array[index] > 9
   end
 
   sum = 0
   credit_card_array.each { |x| sum += x }
+
+  puts sum
 
   if (sum % 10).zero?
     puts 'The credit number is correct! ✅'
@@ -40,14 +42,14 @@ puts 'Please insert your credit card number:'
 credit_card = Integer(gets.chomp)
 check(credit_card)
 
-luhn_number1 = 499273987176 # true
-luhn_number2 = 79927398713 # true
-luhn_number3 = 123426242 # false
-luhn_number4 = 8285728192342 # false
+# luhn_number1 = 499273987176 # true
+# luhn_number2 = 79927398713 # true
+# luhn_number3 = 123426242 # false
+# luhn_number4 = 8285728192342 # false
+# luhn_number5 = 8569247803833437 # false
 
-check(luhn_number1)
-check(luhn_number2)
-check(luhn_number3)
-check(luhn_number4)
-
-
+# check(luhn_number1)
+# check(luhn_number2)
+# check(luhn_number3)
+# check(luhn_number4)
+# check(luhn_number5)
